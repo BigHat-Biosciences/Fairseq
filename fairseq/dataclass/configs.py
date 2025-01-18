@@ -1126,16 +1126,16 @@ class EMAConfig(FairseqDataclass):
 
 @dataclass
 class FairseqConfig(FairseqDataclass):
-    common: CommonConfig = field(default_factory=CommonConfig)
-    common_eval: CommonEvalConfig = field(default_factory=CommonEvalConfig)
-    distributed_training: DistributedTrainingConfig = field(default_factory=DistributedTrainingConfig)
-    dataset: DatasetConfig = field(default_factory=DatasetConfig)
-    optimization: OptimizationConfig = field(default_factory=OptimizationConfig)
-    checkpoint: CheckpointConfig = field(default_factory=CheckpointConfig)
-    bmuf: FairseqBMUFConfig = field(default_factory=FairseqBMUFConfig)
-    generation: GenerationConfig = field(default_factory=GenerationConfig)
-    eval_lm: EvalLMConfig = field(default_factory=EvalLMConfig)
-    interactive: InteractiveConfig = field(default_factory=InteractiveConfig)
+    common: CommonConfig = field(default_factory=CommonConfig, default=CommonConfig())
+    common_eval: CommonEvalConfig = field(default_factory=CommonEvalConfig, default=CommonEvalConfig())
+    distributed_training: DistributedTrainingConfig = field(default_factory=DistributedTrainingConfig, default=DistributedTrainingConfig())
+    dataset: DatasetConfig = field(default_factory=DatasetConfig, dfeault=DatasetConfig())
+    optimization: OptimizationConfig = field(default_factory=OptimizationConfig, default=OptimizationConfig())
+    checkpoint: CheckpointConfig = field(default_factory=CheckpointConfig, default=CheckpointConfig())
+    bmuf: FairseqBMUFConfig = field(default_factory=FairseqBMUFConfig, default=FairseqBMUFConfig())
+    generation: GenerationConfig = field(default_factory=GenerationConfig, default=GenerationConfig())
+    eval_lm: EvalLMConfig = field(default_factory=EvalLMConfig, default=EvalLMConfig())
+    interactive: InteractiveConfig = field(default_factory=InteractiveConfig, default=InteractiveConfig())
     model: Any = MISSING
     task: Any = None
     criterion: Any = None
@@ -1144,4 +1144,4 @@ class FairseqConfig(FairseqDataclass):
     scoring: Any = None
     bpe: Any = None
     tokenizer: Any = None
-    ema: EMAConfig = field(default_factory=EMAConfig)
+    ema: EMAConfig = field(default_factory=EMAConfig, default=EMAConfig())
